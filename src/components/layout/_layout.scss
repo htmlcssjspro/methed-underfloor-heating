@@ -1,0 +1,20 @@
+@use '/src/scss/media';
+
+.container {
+    @include media.sm {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+
+.content {
+    @include media.xl {
+        max-width: 890px;
+    }
+    @include media.lg {
+        max-width: 630px;
+    }
+}
+
+.wrapper {
+}

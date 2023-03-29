@@ -1,0 +1,98 @@
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    $position-map: (
+        a: absolute,
+        f: fixed,
+        r: relative,
+        s: sticky,
+    );
+
+    @each $key, $val in $position-map {
+        @if $position == $key {
+            position: #{map-get($position-map, $position)};
+        } @else if $position == $val {
+            position: $position;
+        }
+    }
+
+    @if $top != null {
+        top: $top;
+    }
+
+    @if $left != null {
+        left: $left;
+    }
+
+    @if $bottom != null {
+        bottom: $bottom;
+    }
+
+    @if $right != null {
+        right: $right;
+    }
+}
+
+@mixin corner($top-or-bottom, $left-or-right, $indent: 0) {
+    #{$top-or-bottom}: $indent;
+    #{$left-or-right}: $indent;
+}
+
+%position,
+%pos {
+    &-relative,
+    &-r {
+        @include position($position: r);
+    }
+
+    &-absolute,
+    &-a {
+        @include position($position: a);
+
+        &-full {
+            @include position($position: a);
+            inset: 0;
+        }
+    }
+
+    &-fixed,
+    &-f {
+        @include position($position: f);
+
+        &-full {
+            @include position($position: f);
+            inset: 0;
+        }
+
+        &-top {
+            @include position($position: f);
+            inset: 0 0 auto 0;
+        }
+        &-bottom {
+            @include position($position: f);
+            inset: auto 0 0 0;
+        }
+    }
+
+    &-sticky,
+    &-s {
+        @include position($position: s);
+
+        &-top {
+            @include position($position: s, $top: 0);
+        }
+    }
+
+    &-corner {
+        &-top-left {
+            @include corner(top, left);
+        }
+        &-top-right {
+            @include corner(top, right);
+        }
+        &-bottom-left {
+            @include corner(bottom, left);
+        }
+        &-bottom-right {
+            @include corner(bottom, right);
+        }
+    }
+}

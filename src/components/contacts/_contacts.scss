@@ -1,0 +1,18 @@
+@use '/src/scss/flex';
+
+.contacts {
+    & {
+    }
+
+    &__item {
+        & + & {
+            margin-top: 0.5em;
+        }
+    }
+
+    &__link {
+        @extend .flex;
+        @extend %flex-fs;
+        gap: 0.5em;
+    }
+}

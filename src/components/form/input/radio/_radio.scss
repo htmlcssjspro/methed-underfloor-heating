@@ -1,0 +1,49 @@
+@use '/src/scss/reset';
+@use '/src/scss/flex';
+@use '/src/scss/position';
+@use '/src/app/colors';
+
+$-size: 1.5em !default;
+$-gap: 0.5em !default;
+
+.radio {
+    & {
+        @extend %flex;
+        @extend %flex-ai-c;
+        gap: $-gap;
+        @extend %pointer;
+    }
+
+    &__input {
+        appearance: none;
+        @extend %position-relative;
+        width: $-size;
+        height: $-size;
+
+        border-radius: 50%;
+
+        &::before,
+        &::after {
+            content: '';
+            @extend %position-absolute;
+            border-radius: 50%;
+        }
+
+        &::before {
+            inset: 0;
+            background-color: colors.$white;
+            border: 1px solid colors.$gray-light;
+        }
+
+        &::after {
+            inset: 0.5em;
+            background-color: colors.$theme-black;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:checked::after {
+            opacity: 1;
+        }
+    }
+}

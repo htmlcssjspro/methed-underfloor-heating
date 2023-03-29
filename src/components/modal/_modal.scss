@@ -1,0 +1,206 @@
+@use '/src/scss/media';
+@use '/src/scss/position';
+@use '/src/scss/flex';
+@use '/src/app/colors';
+
+.modal {
+    & {
+        @extend %position-fixed-full;
+        z-index: 100;
+        @extend %flex;
+        @extend %flex-c;
+        padding: 6px;
+        background-color: hsla(0, 0%, 0%, 0.9);
+        cursor: pointer;
+        visibility: hidden;
+        opacity: 0;
+        // transition: opacity 0.3s ease-in-out;
+
+        &.close {
+            // opacity: 0;
+            animation: close 0.3s ease-in-out both;
+        }
+
+        &.open {
+            // opacity: 1;
+            animation: open 0.3s ease-in-out both;
+        }
+
+        @include media.xl {
+            //
+        }
+        @include media.lg {
+            //
+        }
+        @include media.md {
+            //
+        }
+        @include media.sm {
+            display: block;
+        }
+        @include media.xs {
+            //
+        }
+    }
+
+    &__content {
+        @extend %position-relative;
+        @extend %flex;
+        max-width: 790px;
+        background-color: transparent;
+        border-radius: 12px;
+        box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.25);
+        cursor: default;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            min-height: 214px;
+            flex: 0 0 45%;
+            background: url('/src/images/modal_xs.jpg') center/cover no-repeat;
+
+            @include media.sm {
+                background-image: url('/src/images/modal_sm.jpg');
+            }
+        }
+
+        @include media.xl {
+            max-width: 790px;
+        }
+
+        @include media.sm {
+            display: block;
+        }
+    }
+
+    &__info {
+        flex: 0 0 55%;
+        // @extend %flex;
+        // @extend %flex-col-fs-fs;
+        // gap: 24px;
+        padding: var(--padding);
+        background-color: colors.$white;
+
+        @include media.min(media.$lg) {
+            --padding: 30px;
+        }
+    }
+
+    &__title {
+        font-size: 34px;
+
+        @include media.lg {
+            font-size: 24px;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 1.5em;
+
+        @include media.lg {
+            margin-top: 16px;
+        }
+    }
+
+    &__form {
+        margin-top: 32px;
+
+        @include media.lg {
+            margin-top: 24px;
+        }
+    }
+
+    &__fieldset {
+        @extend %flex;
+        gap: 10px;
+
+        @include media.sm {
+            flex-direction: column;
+        }
+    }
+
+    &__form-item {
+        @extend %position-relative;
+        padding-bottom: 20px;
+    }
+
+    &__label {
+        min-width: max-content;
+        font-size: 12px;
+        color: colors.$gray;
+    }
+
+    &__input {
+        margin-top: 2px;
+        padding: 1em 1.5em;
+        background: colors.$white;
+        border: 1px solid colors.$gray-light;
+        border-radius: 12px;
+        outline: none;
+
+        &:hover {
+            border-color: colors.$main;
+        }
+
+        &:focus-visible {
+            border-color: colors.$main;
+        }
+
+        @include media.lg {
+            padding: 6px 1em;
+        }
+    }
+
+    &__input-error {
+        @extend %position-absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 12px;
+    }
+
+    &__submit {
+        margin-top: 12px;
+
+        @include media.lg {
+            margin-top: 4px;
+        }
+    }
+
+    &__close {
+        @extend %position-absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@keyframes open {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes close {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

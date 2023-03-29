@@ -1,0 +1,28 @@
+$container: 1920px !default;
+$content: 1200px !default;
+$min-width: 320px !default;
+
+.container {
+    max-width: $container;
+    min-width: $min-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+    .container {
+        margin: 0;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: $content;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}

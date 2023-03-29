@@ -1,0 +1,8 @@
+@mixin grid-area($name) {
+    grid-area: $name;
+}
+
+%grid,
+.grid {
+    display: grid;
+}

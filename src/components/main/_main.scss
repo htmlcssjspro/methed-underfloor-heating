@@ -1,0 +1,29 @@
+@use '/src/scss/media';
+@use '/src/scss/flex';
+@use '/src/app/colors';
+
+.main {
+    & {
+        grid-area: main;
+    }
+
+    &__content {
+        @extend .flex;
+        @extend %flex-sb-st;
+        gap: 10px;
+
+        @include media.lg {
+            flex-direction: column;
+        }
+    }
+
+    &__info {
+        padding: var(--padding);
+        background-color: colors.$theme-white;
+        border-radius: 12px;
+    }
+
+    &__50 {
+        flex-basis: 50%;
+    }
+}

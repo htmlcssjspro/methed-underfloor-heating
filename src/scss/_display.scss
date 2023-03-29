@@ -1,0 +1,29 @@
+.dn {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.hidden,
+[hidden] {
+    visibility: hidden;
+}
+
+.visually-hidden {
+    position: fixed;
+    transform: scale(0);
+}

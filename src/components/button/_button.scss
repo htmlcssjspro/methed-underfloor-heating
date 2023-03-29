@@ -1,0 +1,66 @@
+@use '/src/scss/media';
+@use '/src/scss/text';
+@use '/src/app/colors';
+
+.button {
+    & {
+        width: max-content;
+        padding: 1em 2.5em;
+        border: 1px solid;
+        border-radius: 1.5em;
+        outline: none;
+        line-height: 1.25;
+        @extend %text-uppercase;
+        transition: 0.2s ease-in-out;
+        transition-property: background-color, border-color;
+
+        &:hover {
+            background-color: colors.$main-hover;
+            border-color: colors.$main-hover;
+        }
+
+        &:active {
+            transform: translate(2px, 2px);
+        }
+
+        &:disabled {
+            color: colors.$gray;
+            background-color: colors.$disabled;
+            border-color: colors.$disabled;
+            pointer-events: none;
+            // cursor: default;
+        }
+
+        @include media.lg {
+            padding: 10px 24px;
+            border-radius: 24px;
+        }
+    }
+
+    &_center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &_main {
+        background-color: colors.$main;
+        border-color: colors.$main;
+
+        &:focus-visible {
+            border-color: colors.$main-accent;
+        }
+    }
+
+    &_white {
+        background-color: colors.$white;
+        border-color: colors.$theme-black;
+
+        &:focus-visible {
+            border-color: colors.$main;
+        }
+    }
+
+    &_reset {
+        padding: 0;
+    }
+}

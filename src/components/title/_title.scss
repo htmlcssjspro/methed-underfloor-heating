@@ -1,0 +1,16 @@
+@use '/src/scss/media';
+@use '/src/scss/text';
+
+.title {
+    font-size: 44px;
+    line-height: 1.3;
+    font-weight: 500;
+    @extend %text-uppercase;
+
+    @include media.xl {
+        font-size: 34px;
+    }
+    @include media.sm {
+        font-size: 24px;
+    }
+}

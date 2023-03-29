@@ -1,0 +1,48 @@
+@use '/src/scss/flex';
+@use '/src/scss/media';
+@use '/src/scss/text';
+
+.hero {
+    & {
+        --hero-height: 530px;
+
+        min-height: var(--hero-height);
+        padding-bottom: var(--section-offset);
+
+        @include media.xl {
+            --hero-height: 396px;
+        }
+        @include media.lg {
+            --hero-height: 280px;
+        }
+    }
+
+    &__info {
+        @extend .flex;
+        @extend %flex-col-sb-fs;
+        gap: 32px;
+        min-height: var(--hero-height);
+
+        @include media.xl {
+            gap: 24px;
+        }
+        @include media.lg {
+            gap: 16px;
+        }
+    }
+
+    &__title {
+        @include media.lg {
+            max-width: 410px;
+        }
+    }
+
+    &__description {
+        flex-grow: 1;
+        @extend %text-uppercase;
+
+        @include media.lg {
+            max-width: 410px;
+        }
+    }
+}

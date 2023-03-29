@@ -1,0 +1,10 @@
+.developers {
+    &__item {
+        & + & {
+            margin-top: 0.5em;
+        }
+    }
+
+    &__link {
+    }
+}

@@ -1,0 +1,62 @@
+@forward '/src/scss/colors';
+@use '/src/scss/colors';
+
+//* Theme
+$theme-white: hsl(0, 0%, 97%);
+$theme-black: hsl(0, 4%, 13%);
+
+$main: hsl(47, 100%, 50%);
+$main-hover: hsl(47, 100%, 66%);
+$main-accent: hsl(47, 100%, 31%);
+
+$gray: hsl(0, 0%, 54%);
+$gray-light: hsl(0, 0%, 89%);
+$disabled: hsl(0, 0%, 88%);
+
+// $dark: colors.gray(800);
+// $gray-dark: colors.gray(700);
+// $gray: colors.gray(600);
+// $gray-light: colors.gray(500);
+// $light: colors.gray(400);
+
+// $accent: $theme-1;
+// $action: $theme-1;
+// $active: $theme-1;
+
+// $brand-1: colors.$fuchsia;
+// $brand-2: colors.$cyan;
+
+// $promo-yellow: colors.$yellow;
+// $promo-blue: colors.$blue;
+// $promo-green: colors.$green;
+
+$info: colors.$cyan;
+$success: colors.$green;
+$warning: colors.$yellow;
+$error: colors.$red;
+$danger: colors.$red;
+
+//* BackGround
+
+$bgc-dark: colors.gray(900);
+$bgc-dark-alpha: colors.bgca($bgc-dark);
+
+$bgc-gray-dark: colors.gray(800);
+$bgc-gray-dark-alpha: colors.bgca($bgc-gray-dark);
+
+$bgc-gray: colors.gray(700);
+$bgc-gray-alpha: colors.bgca($bgc-gray);
+
+$bgc-gray-light: colors.gray(600);
+$bgc-gray-light-alpha: colors.bgca($bgc-gray-light);
+
+$bgc-light: colors.gray(500);
+$bgc-light-alpha: colors.bgca($bgc-light);
+
+:root {
+    --info: #{$info};
+    --success: #{$success};
+    --warning: #{$warning};
+    --error: #{$error};
+    --danger: #{$danger};
+}

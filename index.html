@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="/vite.svg"
+    />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+    <title>Теплый пол - Приносим тепло в каждый дом</title>
+    <link
+        rel="preload"
+        href="src/fonts/Inter/Inter-Regular.woff2"
+        as="font"
+        crossorigin
+    >
+    <link
+        rel="preload"
+        href="src/fonts/Inter/Inter-Medium.woff2"
+        as="font"
+        crossorigin
+    >
+    <script
+        type="module"
+        src="/src/main.js"
+    ></script>
+    <style>
+        .logo {
+            width: 165px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+    </style>
+</head>
+
+<body class="app scrollbar grid">
+
+    <header class="container header">
+
+        <h1 class="visually-hidden">Теплый пол в каждый дом</h1>
+
+        <div class="content header__content">
+            <div class="logo header__logo">
+                <img
+                    src="/svg/logo.svg"
+                    alt="Логотип Теплый Пол"
+                >
+            </div>
+            <button class="button button_white header__button uc js-open-modal">ЗАКАЗАТЬ</button>
+        </div>
+    </header>
+
+    <main class="container main">
+
+        <section class="content hero main__content">
+            <div class="hero__info main__info main__50">
+                <h2 class="title hero__title">ПРИНОСИМ ТЕПЛО<br>В&nbsp;КАЖДЫЙ ДОМ</h2>
+                <p class="hero__description">Устанавливаем теплые полы в&nbsp;квартирах, офисах и&nbsp;загородных домах.</p>
+                <a
+                    class="link button button_main hero__button"
+                    href="#calculator"
+                >Рассчитать&nbsp;стоимость</a>
+            </div>
+
+            <div class="swiper slider main__50">
+                <div class="swiper-wrapper slider__wrapper">
+                    <div class="swiper-slide slider__slide"></div>
+                    <div class="swiper-slide slider__slide"></div>
+                    <div class="swiper-slide slider__slide"></div>
+                    <div class="swiper-slide slider__slide"></div>
+                    <div class="swiper-slide slider__slide"></div>
+                </div>
+                <button
+                    class="button button_main slider__button slider__button_prev"
+                    title="prev"
+                    aria-label="Предыдущий слайд"
+                ></button>
+                <button
+                    class="button button_main slider__button slider__button_next"
+                    title="next"
+                    aria-label="Следующий слайд"
+                ></button>
+            </div>
+        </section>
+
+        <section class="content advantages">
+            <div class="wrapper advantages__wrapper main__content">
+                <h2 class="title advantages__title">НАШИ ПРЕИМУЩЕСТВА</h2>
+                <ul class="advantages__list main__50">
+                    <li class="advantages__item uc">НАДЕЖНЫЕ МАТЕРИАЛЫ</li>
+                    <li class="advantages__item uc">ОПЫТНЫЕ МОНТАЖНИКИ</li>
+                    <li class="advantages__item uc">РЕГУЛИРУЕМАЯ ТЕМПЕРАТУРА ПОЛА</li>
+                    <li class="advantages__item uc">ЗАЩИТА ОТ ЗАМЫКАНИЙ</li>
+                    <li class="advantages__item uc">ГАРАНТИЯ ДО 10 ЛЕТ</li>
+                </ul>
+            </div>
+        </section>
+
+        <section
+            class="content calculator main__content"
+            id="calculator"
+        >
+            <div class="calculator__content main__info main__50">
+                <h2 class="title calculator__title">РАССЧИТАЙТЕ СТОИМОСТЬ</h2>
+                <form
+                    class="calculator__form"
+                    id="js-calc-form"
+                >
+                    <fieldset class="calculator__fieldset calculator__fieldset_size">
+                        <label class="calculator__item calculator__item_size">
+                            <span class="calculator__small-text">Ширина помещения, м</span>
+                            <input
+                                class="calculator__input calculator__input_number calculator__text"
+                                name="width"
+                                type="number"
+                                min="1"
+                                value="3"
+                                required
+                            >
+                        </label>
+                        <label class="calculator__item calculator__item_size">
+                            <span class="calculator__small-text">Длина помещения, м</span>
+                            <input
+                                class="calculator__input calculator__input_number calculator__text"
+                                name="length"
+                                type="number"
+                                min="1"
+                                value="5"
+                                required
+                            >
+                        </label>
+                    </fieldset>
+                    <fieldset class="calculator__fieldset calculator__fieldset_tariff">
+                        <legend class="calculator__legend calculator__small-text">Тариф</legend>
+                        <label class="calculator__item radio">
+                            <input
+                                class="calculator__input calculator__input_radio radio__input"
+                                name="tariff"
+                                value="econom"
+                                data-price="550"
+                                type="radio"
+                            >
+                            <span class="calculator__text radio__label uc">ЭКОНОМ</span>
+                        </label>
+                        <label class="calculator__item radio">
+                            <input
+                                class="calculator__input calculator__input_radio radio__input"
+                                name="tariff"
+                                value="comfort"
+                                data-price="1450"
+                                type="radio"
+                                checked
+                            >
+                            <span class="calculator__text radio__label uc">КОМФОРТ</span>
+                        </label>
+                        <label class="calculator__item radio">
+                            <input
+                                class="calculator__input calculator__input_radio radio__input"
+                                name="tariff"
+                                value="premium"
+                                data-price="2700"
+                                type="radio"
+                            >
+                            <span class="calculator__text radio__label uc">ПРЕМИУМ</span>
+                        </label>
+                    </fieldset>
+                    <div class="calculator__buttons">
+                        <button
+                            class="button button_main calculator__submit uc"
+                            type="submit"
+                        >РАССЧИТАТЬ</button>
+                        <button
+                            class="button button_white calculator__button uc js-open-modal"
+                            type="button"
+                        >ЗАКАЗАТЬ</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="calculator__results main__info main__50">
+                <div class="calculator__total">
+                    <p class="calculator__total-item">
+                        <span class="calculator__small-text">Площадь</span>
+                        <span
+                            class="calculator__text"
+                            id="js-calc-square"
+                        >15 кв м</span>
+                    </p>
+
+                    <p class="calculator__total-item">
+                        <span class="calculator__small-text">Примерная стоимость</span>
+                        <span
+                            class="calculator__text"
+                            id="js-calc-price"
+                        >21750 руб</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="container footer">
+        <div class="content footer__content">
+
+            <div class="logo footer__logo">
+                <img
+                    src="/svg/logo.svg"
+                    alt="Логотип Теплый Пол"
+                >
+            </div>
+
+            <ul class="social footer__social footer__list">
+                <li class="social__item">
+                    <a
+                        class="link social__link footer__link"
+                        href="#"
+                        title="youtube"
+                        aria-label="Наш канал на YouTube"
+                    >
+                        <svg class="icon">
+                            <use href="/src/svg/social.svg#youtube">
+                        </svg>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a
+                        class="link social__link footer__link"
+                        href="#"
+                        title="telegram"
+                        aria-label="Наш чат в Telegram"
+                    >
+                        <svg class="icon">
+                            <use href="/src/svg/social.svg#telegram">
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="contacts footer__contacts footer__list">
+                <li class="contacts__item">
+                    <a
+                        class="link contacts__link footer__link"
+                        href="tel:+78588497380"
+                        title="phone"
+                    >
+                        <svg class="icon">
+                            <use href="/src/svg/contacts.svg#phone">
+                        </svg>
+                        <span>+7&nbsp;858&nbsp;849&nbsp;73&nbsp;80</span>
+                    </a>
+                </li>
+                <li class="contacts__item">
+                    <a
+                        class="link contacts__link footer__link"
+                        href="mailto:teplyipol@gmail.com"
+                        title="email"
+                    >
+                        <svg class="icon">
+                            <use href="/src/svg/contacts.svg#email">
+                        </svg>
+                        <span>TeplyiPol@gmail.com</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="developers footer__developers">
+                <li class="developers__item">
+                    <a
+                        class="link developers__link footer__link"
+                        href="https://t.me/mrshmallowww"
+                        target="_blank"
+                    >Designer: Anastasia&nbsp;Ilina</a>
+                </li>
+                <li class="developers__item">
+                    <a
+                        class="link developers__link footer__link"
+                        href="https://t.me/militer_htmlcssjspro"
+                        target="_blank"
+                    >Developer: Сергей&nbsp;MILITER</a>
+                </li>
+            </ul>
+
+            <p class="copyright footer__copyright">&copy;&nbsp;Теплый пол,&nbsp;2023</p>
+
+        </div>
+
+    </footer>
+
+    <section class="modal">
+        <div class="content modal__content">
+            <div class="modal__info">
+                <h2 class="title modal__title">
+                    Оставьте заявку<br>и&nbsp;мы&nbsp;перезвоним
+                </h2>
+
+                <p class="modal__subtitle uc">
+                    Наши мастера свяжутся с&nbsp;вами в&nbsp;течение 3&nbsp;часов
+                </p>
+
+                <form class="modal__form">
+                    <fieldset class="modal__fieldset">
+                        <label class="modal__form-item">
+                            <span class="modal__label">Имя</span>
+                            <input
+                                class="modal__input"
+                                id="name"
+                                name="name"
+                                type="text"
+                            >
+                        </label>
+                        <label class="modal__form-item">
+                            <span class="modal__label">Телефон</span>
+                            <input
+                                class="modal__input js-masked-input"
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                            >
+                        </label>
+                    </fieldset>
+
+                    <button
+                        class="button button_main modal__submit uc"
+                        type="submit"
+                    >Отправить</button>
+                </form>
+            </div>
+
+            <button class="modal__close">
+                <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M21 11L11 21"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M21 21L11 11"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+            </button>
+        </div>
+    </section>
+
+</body>
+</html>

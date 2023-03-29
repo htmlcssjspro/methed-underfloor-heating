@@ -1,0 +1,51 @@
+@use 'config';
+// @use '/src/scss/font-face';
+@use '/src/scss/media';
+@use '/src/scss/position';
+@use '/src/scss/flex';
+@use '/src/scss/grid';
+@use 'colors';
+
+:root {
+    --section-offset: 40px;
+    --padding: 50px;
+
+    @include media.xl {
+        --section-offset: 30px;
+        --padding: 30px;
+    }
+    @include media.lg {
+        --padding: 24px;
+    }
+    @include media.sm {
+        --padding: 20px;
+    }
+}
+
+.app {
+    & {
+        @extend %position-relative;
+        min-height: 100vh;
+        overflow-x: hidden;
+        // font-family: font-face.$font-family, sans-serif;
+        font-family: config.$font-family, sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: colors.$theme-black;
+        background-color: colors.$white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        @include media.lg {
+            font-size: 1.4rem;
+        }
+    }
+
+    &.grid {
+        grid-template:
+            'header'
+            'main' 1fr
+            'footer' / 1fr;
+    }
+}

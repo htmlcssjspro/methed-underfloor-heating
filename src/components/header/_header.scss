@@ -1,0 +1,21 @@
+@use '/src/scss/flex';
+@use '/src/scss/media';
+@use '/src/scss/text';
+@use '/src/app/colors';
+
+.header {
+    & {
+        grid-area: header;
+        padding: 18px 0;
+
+        @include media.sm {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+    }
+
+    &__content {
+        @extend %flex;
+        @extend %flex-sb-c;
+    }
+}

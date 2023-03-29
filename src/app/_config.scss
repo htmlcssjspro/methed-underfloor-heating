@@ -1,0 +1,21 @@
+@forward '/src/scss/font-face' with (
+    $font-family: Inter,
+    $font-weights: (
+        400,
+        500,
+    )
+);
+
+@forward '/src/scss/layout' with (
+    $container: 1440px,
+    $content: 1190px
+);
+
+@forward '/src/scss/media' with (
+    // $mobile-first: true,
+    $xl: 1240px,
+    $lg: 920px,
+    $md: 768px,
+    $sm: 576px,
+    $xs: 320px
+);

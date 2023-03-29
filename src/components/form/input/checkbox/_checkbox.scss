@@ -1,0 +1,51 @@
+@use 'sass:math';
+@use '/src/scss/reset';
+@use '/src/scss/flex';
+@use '/src/scss/position';
+@use '/src/app/colors';
+
+$-size: 1.5em !default;
+$-gap: 0.5em !default;
+$-inset: math.div($-size, 15) math.div($-size, 3) math.div($-size, 3.75);
+
+.checkbox {
+    & {
+        @extend %flex;
+        @extend %flex-ai-c;
+        gap: $-gap;
+        @extend %pointer;
+    }
+
+    &__input {
+        appearance: none;
+        @extend %position-relative;
+        width: $-size;
+        height: $-size;
+
+        &::before,
+        &::after {
+            content: '';
+            @extend %position-absolute;
+        }
+
+        &::before {
+            inset: 0;
+            background-color: colors.$white;
+            border: 1px solid colors.$gray-light;
+        }
+
+        &::after {
+            // inset: 0.1em 0.5em 0.4em;
+            inset: $-inset;
+            border: solid colors.$theme-black;
+            border-width: 0 0.15em 0.15em 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:checked::after {
+            opacity: 1;
+        }
+    }
+}

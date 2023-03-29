@@ -1,0 +1,20 @@
+@use '/src/scss/media';
+@use '/src/scss/flex';
+
+.social {
+    & {
+        @extend .flex;
+        @extend %flex-ai-c;
+        gap: 24px;
+
+        @include media.lg {
+            gap: 16px;
+        }
+    }
+
+    &__item {
+    }
+
+    &__link {
+    }
+}

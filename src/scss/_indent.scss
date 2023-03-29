@@ -1,0 +1,101 @@
+$indent-map: (
+    0: 0,
+    '05': 0.5,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    'auto': auto,
+);
+
+//* Margin
+
+@function margin-unit($indent) {
+    $margin-unit: 1rem;
+    @return if($indent == 'auto', $indent, $indent * $margin-unit);
+}
+
+@each $i, $indent in $indent-map {
+    .m-#{$i} {
+        margin: margin-unit($indent);
+    }
+
+    .my-#{$i} {
+        margin-top: margin-unit($indent);
+        margin-bottom: margin-unit($indent);
+    }
+    .mt-#{$i} {
+        margin-top: margin-unit($indent);
+    }
+    .mb-#{$i} {
+        margin-bottom: margin-unit($indent);
+    }
+
+    .mx-#{$i} {
+        margin-left: margin-unit($indent);
+        margin-right: margin-unit($indent);
+    }
+    .ml-#{$i} {
+        margin-left: margin-unit($indent);
+    }
+    .mr-#{$i} {
+        margin-right: margin-unit($indent);
+    }
+}
+
+%margin-center {
+    margin: 0 auto;
+}
+.m-center {
+    @extend %margin-center;
+}
+
+//* Padding
+
+@function padding-unit($indent) {
+    $padding-unit: 1em;
+    @return if($indent == 'auto', $indent, $indent * $padding-unit);
+}
+
+@each $i, $indent in $indent-map {
+    .p-#{$i} {
+        padding: padding-unit($indent);
+    }
+
+    .py-#{$i} {
+        padding-top: padding-unit($indent);
+        padding-bottom: padding-unit($indent);
+    }
+    .pt-#{$i} {
+        padding-top: padding-unit($indent);
+    }
+    .pb-#{$i} {
+        padding-bottom: padding-unit($indent);
+    }
+
+    .px-#{$i} {
+        padding-left: padding-unit($indent);
+        padding-right: padding-unit($indent);
+    }
+    .pl-#{$i} {
+        padding-left: padding-unit($indent);
+    }
+    .pr-#{$i} {
+        padding-right: padding-unit($indent);
+    }
+}
+
+%padding-cell {
+    padding: 0.5em 1em;
+}
+.p-cell {
+    @extend %padding-cell;
+}
+
+%padding-span {
+    padding: 1px 0.5em;
+}
+.p-span {
+    @extend %padding-span;
+}

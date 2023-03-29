@@ -1,0 +1,9 @@
+@use '/src/scss/media';
+
+.logo {
+    width: 165px;
+
+    @include media.lg {
+        width: 124px;
+    }
+}

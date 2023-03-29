@@ -1,0 +1,148 @@
+@use '/src/scss/media';
+@use '/src/scss/flex';
+@use '/src/scss/position';
+@use '/src/scss/display';
+@use '/src/scss/text';
+@use '/src/app/colors';
+
+.calculator {
+    & {
+        padding: var(--section-offset) 0;
+        font-size: 16px;
+    }
+
+    &__content {
+    }
+
+    &__form {
+        @extend .flex;
+        @extend %flex-col-sb-fs;
+        gap: 2em;
+        margin-top: 2em;
+
+        @include media.lg {
+            margin-top: 24px;
+        }
+        @include media.sm {
+            margin-top: 16px;
+        }
+    }
+
+    &__fieldset {
+        @extend .flex;
+        @extend %flex-ai-c;
+        gap: 1em;
+
+        @include media.sm {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        &_size {
+        }
+
+        &_tariff {
+        }
+    }
+
+    &__legend {
+        margin-bottom: 16px;
+
+        @include media.sm {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__item {
+        &_size {
+        }
+    }
+
+    &__input {
+        &_number {
+            margin-top: 2px;
+            padding: 1em 1.5em;
+            background: colors.$white;
+            border: 1px solid colors.$gray-light;
+            border-radius: 12px;
+            outline: none;
+
+            &:hover {
+                border-color: colors.$main;
+            }
+
+            &:focus-visible {
+                border-color: colors.$main;
+            }
+
+            @include media.lg {
+                padding: 6px 1em;
+            }
+        }
+
+        &_radio {
+            &:focus-visible {
+                outline: 1px solid colors.$main;
+            }
+        }
+    }
+
+    &__text {
+    }
+
+    &__small-text {
+        min-width: max-content;
+        font-size: 12px;
+        color: colors.$gray;
+    }
+
+    &__buttons {
+        @extend %flex;
+        gap: 30px;
+        margin-top: 2em;
+    }
+
+    &__submit {
+    }
+
+    &__results {
+        @extend %flex;
+        @extend %flex-fs-fe;
+        background: url('/src/images/calculator.jpg') center/cover no-repeat;
+
+        @include media.lg {
+            flex-basis: unset;
+            align-items: flex-start;
+            height: 220px;
+            background-position: center 75%;
+        }
+        @include media.sm {
+            height: auto;
+        }
+    }
+
+    &__total {
+        flex-basis: 303px;
+        padding: 1.5em;
+        background-color: colors.$white;
+        border-radius: 0.5em;
+
+        @include media.lg {
+            padding: 24px;
+        }
+        @include media.sm {
+            padding: 16px;
+        }
+    }
+
+    &__total-item {
+        @extend %flex;
+        @extend %flex-sb-fe;
+        gap: 1em;
+
+        & + & {
+            margin-top: 1em;
+        }
+    }
+}
